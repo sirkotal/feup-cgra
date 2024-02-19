@@ -1,14 +1,13 @@
-import {
-    CGFapplication,
-    CGFinterface
-} from '../lib/CGF.js';
-import { TPscene } from './TPscene.js';
+
+import {CGFapplication} from '../lib/CGF.js';
+import { MyScene } from './MyScene.js';
+import { MyInterface } from './MyInterface.js';
 
 function main()
 {
     var app = new CGFapplication(document.body);
-    var myScene = new TPscene();
-    var myInterface = new CGFinterface();
+    var myScene = new MyScene();
+    var myInterface = new MyInterface();
 
     app.init();
 
