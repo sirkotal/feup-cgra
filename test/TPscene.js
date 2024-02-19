@@ -23,6 +23,7 @@ export class TPscene extends CGFscene {
         this.gl.enable(this.gl.DEPTH_TEST);
         this.gl.enable(this.gl.CULL_FACE);
         this.gl.depthFunc(this.gl.LEQUAL);
+        this.displayAxis = true;
 
         this.axis=new CGFaxis(this);
         this.obj = new MyObject(this);
@@ -63,8 +64,9 @@ export class TPscene extends CGFscene {
         // Apply transformations corresponding to the camera position relative to the origin
         this.applyViewMatrix();
 
-        // Draw axis
-        this.axis.display();
+        if (this.displayAxis) {
+            this.axis.display();
+        }
 
         this.setDefaultAppearance();
         
