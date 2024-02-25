@@ -1,10 +1,10 @@
 # CG 2023/2024
 
-## Group T0xG0y
+## Group T08G03
 | Name             | Number    | E-Mail             |
 | ---------------- | --------- | ------------------ |
-| John Doe         | 201901010 | ...                |
-| Jane Doe         | 201901011 | ...                |
+| Joaquim Afonso Marques da Cunha         | 202108779 | up202108779@up.pt                |
+| Miguel Jorge Medeiros Garrido         | 202108889 | up202108889@up.pt                |
 
 ----
 
