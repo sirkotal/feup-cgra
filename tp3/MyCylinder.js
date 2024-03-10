@@ -18,25 +18,27 @@ export class MyCylinder extends CGFobject {
 		this.normals = [];
 
 		let alpha = (2 * Math.PI) / this.slices;
-		let index = 0;
 
         for (let i = 0 ; i < this.slices ; i++) {
-            let x_1 = Math.cos(i * alpha);
-			let x_2 = Math.cos((i + 1) * alpha);
-            let y_1 = Math.sin(i * alpha);
-            let y_2 = Math.sin((i + 1) * alpha);
+            let x = Math.cos(alpha * i);
+            let y = Math.sin(alpha * i);
+            let size = Math.sqrt(x * x + y * y);
+
+            this.vertices.push(x, y, 0);
+            this.normals.push(x / size, y / size, 0);
             
             for (let j = 0 ; j < this.stacks ; j++) {
-                let x = Math.cos((i + 0.5)* alpha);
-                let y = Math.sin((i + 0.5)* alpha);
-                let size = Math.sqrt((x * x) + (y * y));
-				
-				// (1 / this.stacks) increments the Z axis coordinate
-                this.vertices.push(x_1, y_1, (1 / this.stacks) * j, x_2, y_2, (1 / this.stacks) * j, x_1, y_1, (1 / this.stacks) * (j + 1), x_2, y_2, (1 / this.stacks) * (j + 1));
-                this.indices.push(index + 2, index, index + 1, index + 1, index + 3, index + 2);
-                this.normals.push(x / size, y / size, 0, x / size, y / size, 0, x / size, y / size, 0, x / size, y / size, 0);
-				
-                index += 4;
+                let z = (j + 1) / this.stacks;
+                this.vertices.push(x, y, z);
+                this.normals.push(x / size, y / size, 0);
+
+                if (i < this.slices - 1) {
+                    this.indices.push(i * (this.stacks + 1) + j + 1, i * (this.stacks + 1) + j, (i + 1) * (this.stacks + 1) + j);
+                    this.indices.push((i + 1) * (this.stacks + 1) + j + 1, i * (this.stacks + 1) + j + 1, (i + 1) * (this.stacks + 1) + j);
+                } else {
+                    this.indices.push(i * (this.stacks + 1) + j + 1, i * (this.stacks + 1) + j, j);
+                    this.indices.push(j + 1, i * (this.stacks + 1) + j + 1, j);
+                }
             }
         }
 
