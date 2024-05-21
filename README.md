@@ -1,4 +1,4 @@
-# [CG 2023/2024](https://git.fe.up.pt/cg/cg-2023-2024/t08/cg-t08-g03/-/tree/master)
+# CG 2023/2024
 
 ## Group T08G03
 | Name             | Number    | E-Mail             |
