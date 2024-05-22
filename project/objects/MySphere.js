@@ -33,7 +33,7 @@ export class MySphere extends CGFobject {
             const sin_t = Math.sin(theta);
 
             for (let stack = 0; stack <= (this.stacks * 2); stack++) {
-                const gamma = (-Math.PI / 2) - stack * beta; // latitudinal angle for each slice-stack combo
+                const gamma = (-Math.PI / 2) + stack * beta; // latitudinal angle for each slice-stack combo
                 const cos_g = Math.cos(gamma);
                 const sin_g = Math.sin(gamma);
 
